@@ -49,7 +49,59 @@ class current_account :public account_details
 			cin>>deposit;
 			balance = balance + deposit;
 		}
+		void current_account_withdraw()
+		{
+			float withdraw;
+			cout<<"\n\nBalance : "<<balance;
+			cout<<"\nEnter amount to be withdraw : ";
+			cin>>withdraw;
+			if (balance < 1000)
+			{
+				balance = balance - withdraw;
+				cout<<"\nBalance Amount After withdraw :"<<balance;
+			}
+			else
+			{
+				cout<<"\n! Insuffcient Balance !";
+			}	
+		}
 };
+
+class savings_account:public account_details
+{
+	private:
+		float saving_account_balance;
+	public:
+		void current_account_display()
+		{
+			cout<<"\n The Account Balance is : "<<saving_account_balance;
+		}
+		void current_account_deposit()
+		{
+			float saving_account_deposit , interest;
+			cout<<"\nEnter the Amount to Deposit : ";
+			cin>>saving_account_deposit;
+			saving_account_balance = saving_account_balance + saving_account_deposit;
+			interest = (saving_account_balance * 2) / 100;
+			saving_account_balance = saving_account_balance + interest;
+		}
+		void saving_account_withdraw()
+		{
+			float saving_withdraw;
+			cout<<"\n\nBalance : "<<saving_account_balance;
+			cout<<"\nEnter amount to be withdraw : ";
+			cin>>saving_withdraw;
+			if (balance < 500)
+			{
+				saving_account_balance = saving_account_balance - saving_withdraw;
+				cout<<"\nBalance Amount After withdraw :"<<saving_account_balance;
+			}
+			else
+			{
+				cout<<"\n! Insuffcient Balance !";
+			}	
+		}
+}; 
 
 int main() 
 {
