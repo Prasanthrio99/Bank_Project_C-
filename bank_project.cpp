@@ -79,7 +79,7 @@ public:
 	{
 		cout << "\n The Account Balance is : " << saving_account_balance;
 	}
-	void current_account_deposit()
+	void saving_account_deposit()
 	{
 		float saving_account_deposit, interest;
 		cout << "\nEnter the Amount to Deposit : ";
@@ -130,7 +130,7 @@ int main()
 			switch (choice)
 			{
 			case 1:
-				s.current_account_deposit();
+				s.saving_account_deposit();
 				break;
 			case 2:
 				s.saving_account_withdraw();
@@ -149,10 +149,41 @@ int main()
 	}
 	else if (type == 'c' || type == 'C')
 	{
+		c.get_account_details();
+		while (1)
+		{
+			int choice;
+			cout << "\nChoose Your Choice" << endl;
+			cout << "1) Deposit" << endl;
+			cout << "2) Withdraw" << endl;
+			cout << "3) Display Balance" << endl;
+			cout << "4) Display with full Details " << endl;
+			cout << "5) Exit " << endl;
+			cout << "6) Enter Your choice: ";
+			cin>>choice;
+			switch (choice)
+			{
+			case 1:
+				c.current_account_deposit();
+				break;
+			case 2:
+				c.current_account_withdraw();
+				break;
+			case 3:
+				c.current_account_display();
+			case 4:
+				c.display_details();
+				c.current_account_display();
+			case 5:
+				goto end;
+			default:
+				cout<<"\n\nEntered choice is invaild,\"TRY AGAIN\"";
+			}
+		}
 	}
 	else
 	{
-		cout << "\nInvalid Account Selection"
+		cout << "\nInvalid Account Selection"; 
 	}
 	end:
 		cout<<"n Thank your for banking us ......"<<endl;
